@@ -3,6 +3,10 @@
 // Licensed under the MIT License.
 //
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include "ndspi.h"
+#include "ndsupport.h"
 #include "ndtestutil.h"
 
 //initializer

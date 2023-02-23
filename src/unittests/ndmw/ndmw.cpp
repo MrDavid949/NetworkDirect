@@ -36,6 +36,9 @@
 //  12. Send 0-byte message indicating second test complete.
 //  13. Disconnect
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <initguid.h>
 #include "ndcommon.h"
 #include <logging.h>
 #include <ndtestutil.h>

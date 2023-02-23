@@ -9,7 +9,9 @@
 // operations to its heart's content with no further involvement
 // of the server.
 //
-
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <initguid.h>
 #include "ndcommon.h"
 #include "ndtestutil.h"
 #include <logging.h>

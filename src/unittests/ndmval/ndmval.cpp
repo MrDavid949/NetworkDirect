@@ -16,10 +16,14 @@
 //  3. Try to receive from client
 //  4. Expect ND_BUFFER_OVERFLOW
 
+typedef long NTSTATUS;
 // to get STATUS_DATA_ERROR
 #include <ntstatus.h>
 // define WIN32_NO_STATUS so that STATUS_* types are not defined again
 #define WIN32_NO_STATUS
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <initguid.h>
 #include "ndcommon.h"
 #include <logging.h>
 #include <ndtestutil.h>

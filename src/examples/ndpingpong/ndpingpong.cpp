@@ -3,7 +3,9 @@
 //
 // ndpingpong.cpp - NetworkDirect send/recv pingpong test
 //
-
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <initguid.h>
 #include "ndcommon.h"
 #include "ndtestutil.h"
 #include "logging.h"
