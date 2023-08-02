@@ -17,7 +17,7 @@ void NdConnectListenerClosingServer::RunTest(
     NdTestBase::Init(v4Src);
     NdTestBase::CreateMR();
     NdTestBase::RegisterDataBuffer(x_HdrLen + x_MaxXfer + 1, ND_MR_FLAG_ALLOW_LOCAL_WRITE);
-    NdTestBase::CreateCQ(nSge);
+    NdTestBase::CreateCQ(queueDepth*2);
     NdTestBase::CreateConnector();
     NdTestBase::CreateQueuePair(queueDepth, nSge);
 
@@ -44,7 +44,7 @@ void NdConnectListenerClosingClient::RunTest(
     NdTestBase::Init(v4Src);
     NdTestBase::CreateMR();
     NdTestBase::RegisterDataBuffer(x_MaxXfer, ND_MR_FLAG_ALLOW_LOCAL_WRITE, ND_SUCCESS);
-    NdTestBase::CreateCQ(nSge, ND_SUCCESS);
+    NdTestBase::CreateCQ(queueDepth*2, ND_SUCCESS);
     NdTestBase::CreateConnector();
     NdTestBase::CreateQueuePair(queueDepth, nSge);
 
