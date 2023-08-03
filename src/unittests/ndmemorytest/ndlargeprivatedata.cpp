@@ -17,7 +17,7 @@ void NdLargePrivateDataServer::RunTest(
     NdTestBase::CreateMR();
     NdTestBase::RegisterDataBuffer(x_HdrLen + x_MaxXfer, ND_MR_FLAG_ALLOW_LOCAL_WRITE);
 
-    NdTestBase::CreateCQ(nSge);
+    NdTestBase::CreateCQ(queueDepth*2);
     NdTestBase::CreateConnector();
     NdTestBase::CreateQueuePair(queueDepth, nSge);
     NdTestServerBase::CreateListener();
@@ -68,7 +68,7 @@ void NdLargePrivateDataClient::RunTest(
     NdTestBase::CreateMR();
     NdTestBase::RegisterDataBuffer(x_MaxXfer, ND_MR_FLAG_ALLOW_REMOTE_READ | ND_MR_FLAG_ALLOW_REMOTE_WRITE);
 
-    NdTestBase::CreateCQ(nSge, ND_SUCCESS);
+    NdTestBase::CreateCQ(queueDepth*2, ND_SUCCESS);
     NdTestBase::CreateConnector();
     NdTestBase::CreateQueuePair(queueDepth, nSge);
 
