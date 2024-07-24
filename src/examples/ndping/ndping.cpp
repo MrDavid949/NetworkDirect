@@ -66,6 +66,7 @@ public:
         ND2_ADAPTER_INFO adapterInfo = { 0 };
         NdTestBase::GetAdapterInfo(&adapterInfo);
         m_queueDepth = min(adapterInfo.MaxCompletionQueueDepth, adapterInfo.MaxReceiveQueueDepth);
+        m_queueDepth = min(m_queueDepth, adapterInfo.MaxInitiatorQueueDepth);
         m_queueDepth = (queueDepth != 0) ? min(queueDepth, m_queueDepth) : m_queueDepth;
         m_inlineSizeThreshold = adapterInfo.InlineRequestThreshold;
 
@@ -199,6 +200,7 @@ public:
         ND2_ADAPTER_INFO adapterInfo;
         NdTestBase::GetAdapterInfo(&adapterInfo);
         m_queueDepth = min(adapterInfo.MaxCompletionQueueDepth, adapterInfo.MaxInitiatorQueueDepth);
+        m_queueDepth = min(m_queueDepth, adapterInfo.MaxReceiveQueueDepth);
         m_queueDepth = (queueDepth != 0) ? min(queueDepth, m_queueDepth) : m_queueDepth;
         m_inlineSizeThreshold = adapterInfo.InlineRequestThreshold;
 
