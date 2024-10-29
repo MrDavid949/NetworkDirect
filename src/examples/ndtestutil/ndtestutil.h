@@ -87,7 +87,7 @@ protected:
 
 protected:
     NdTestBase();
-    ~NdTestBase();
+    virtual ~NdTestBase();
 
     //Initialize the adaptor, overlapped handler
     void Init(
@@ -293,7 +293,7 @@ protected:
 
 public:
     NdTestServerBase();
-    ~NdTestServerBase();
+    virtual ~NdTestServerBase();
 
     //virtual method that each test case must implement
     virtual void RunTest(

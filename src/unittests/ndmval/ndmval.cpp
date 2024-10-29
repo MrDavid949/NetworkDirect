@@ -84,7 +84,7 @@ public:
 
         NdTestBase::CreateCQ(adapterInfo.MaxCompletionQueueDepth);
         NdTestBase::CreateConnector();
-        NdTestBase::CreateQueuePair(adapterInfo.MaxReceiveQueueDepth, 1);
+        NdTestBase::CreateQueuePair(min(adapterInfo.MaxInitiatorQueueDepth, adapterInfo.MaxReceiveQueueDepth), 1);
 
         NdTestClientBase::Connect(v4Src, v4Dst, 0, 0);
         NdTestClientBase::CompleteConnect();
@@ -164,7 +164,7 @@ public:
         NdTestBase::GetAdapterInfo(&adapterInfo);
         NdTestBase::CreateCQ(adapterInfo.MaxCompletionQueueDepth);
         NdTestBase::CreateConnector();
-        NdTestBase::CreateQueuePair(adapterInfo.MaxReceiveQueueDepth, 1);
+        NdTestBase::CreateQueuePair(min(adapterInfo.MaxReceiveQueueDepth, adapterInfo.MaxInitiatorQueueDepth), 1);
         NdTestServerBase::CreateListener();
         NdTestServerBase::Listen(v4Src);
         NdTestServerBase::GetConnectionRequest();
@@ -312,3 +312,4 @@ int __cdecl _tmain(int argc, TCHAR* argv[])
     WSACleanup();
     return 0;
 }
+
